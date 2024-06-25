@@ -1,0 +1,32 @@
+version: '3.3'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432"
+    # volumes:
+    #   - ./postgres_data:/var/lib/postgresql/data
+
+  nodeapp:
+    container_name: node_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+
+
+# docker-compose build
+# docker-compose up -d --force-recreate
+
+#docker-compose build --no-cache
