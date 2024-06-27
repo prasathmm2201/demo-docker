@@ -15,7 +15,6 @@ echo "Enter ID for webhook: "
 read webhook_id
 echo "Your Webhook id , $name!"
 
-
 # generate secret
 # openssl rand -hex 32
 
@@ -32,7 +31,7 @@ echo "Your Webhook id , $name!"
             "secret": "271fdf24c79ba0a4d87649663de147bb72d6c91e7b189f496495cefeef2dc6bc",
             "parameter": {
               "source": "header",
-              "name": "X-Hub-Signature"
+              "name": "7e92dbb63fe5813ea5d6a9684d369392603465b3"
             }
           }
         },
