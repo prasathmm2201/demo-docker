@@ -40,7 +40,7 @@ echo "Your Webhook id , $name!"
             "value": "push",
             "parameter": {
               "source": "payload",
-              "name": "action"
+              "name": "demo-docker"
             }
           }
         }
