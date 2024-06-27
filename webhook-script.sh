@@ -9,7 +9,6 @@ mkdir -p etc/webhook
 cd /etc/webhook
 
 mkdir -p web_hooks.json
-
 # enter web hook id
 echo "Enter ID for webhook: "
 read webhook_id
