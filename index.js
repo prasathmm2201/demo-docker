@@ -6,7 +6,7 @@ const { DB_PASSWORD , DB_USER } = process.env;
 
 
 app.use('/' , (req , res)=>{
-    res.send(`Hi users ${DB_PASSWORD} ${DB_USER}`)
+    res.send(`Hi users`)
 })
 app.listen(process.env.PORT , ()=>{
     console.log(`app is running ${process.env.PORT}`)
