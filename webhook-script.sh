@@ -14,7 +14,6 @@ mkdir -p web_hooks.json
 echo "Enter ID for webhook: "
 read webhook_id
 echo "Your Webhook id , $name!"
-
 # generate secret
 # openssl rand -hex 32
 [
