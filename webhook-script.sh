@@ -21,7 +21,7 @@ echo "Your Webhook id , $name!"
   {
     "id": "deploy-node-app",
     "execute-command": "/home/dell/deploy.sh",
-    "command-working-directory": "/home",
+    "command-working-directory": "/home/dell/deployment/demo-docker",
     "trigger-rule": {
       "and": [
         {
