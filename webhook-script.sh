@@ -10,9 +10,9 @@ cd /etc/webhook
 
 mkdir -p web_hooks.json
 # enter web hook id
-echo "Enter ID for webhook: "
-read webhook_id
-echo "Your Webhook id , $name!"
+# echo "Enter ID for webhook: "
+# read webhook_id
+# echo "Your Webhook id , $name!"
 # generate secret
 # openssl rand -hex 32
 
@@ -48,4 +48,4 @@ echo "Your Webhook id , $name!"
   }
 ]
 
-webhook -hooks /etc/webhook/hooks.json -port 9000
+webhook -hooks /home/dell/etc/webhook/web_hooks.json -port 9000 -verbose
