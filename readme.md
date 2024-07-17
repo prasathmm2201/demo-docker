@@ -434,3 +434,64 @@ pods , deployment , statefulset , networking and services , rbac , config map & 
 
       # kubelets: 
         keeps polling on api server , asking api server any thing to run , needs to run on worker node immediately
+
+
+# NGINX (reverse proxy)
+
+ 1.sudo apt update
+ 2.sudo apt install nginx
+
+ 3.sudo systemctl start nginx (Start Nginx)
+ 4.sudo systemctl enable nginx (Enable Nginx to start on boot)
+
+check your port
+
+ If you have a firewall enabled, you'll need to allow traffic on HTTP (port 80) and, optionally, HTTPS
+
+Configure Firewall:
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+npm install -g pm2
+
+
+Nginx configuration files are located in /etc/nginx. The main configuration file is /etc/nginx/nginx.conf, and virtual host files are typically located in /etc/nginx/sites-available and /etc/nginx/sites-enabled.
+
+create a index.nginx-debian.html in html folder
+
+sudo nano /etc/nginx/sites-available/mywebsite
+
+Add Configuration
+
+Enable the Configuration:
+sudo ln -s /etc/nginx/sites-available/mywebsite /etc/nginx/sites-enabled/
+
+install certpot
+sudo apt install certbot python3-certbot-nginx
+
+Verify the options-ssl-nginx.conf File
+sudo mkdir -p /etc/letsencrypt
+sudo touch /etc/letsencrypt/options-ssl-nginx.conf
+
+sudo nano /etc/letsencrypt/options-ssl-nginx.conf
+
+ssl_session_cache shared:le_nginx_SSL:10m;
+ssl_session_timeout 1440m;
+
+ssl_protocols TLSv1.2 TLSv1.3;
+ssl_prefer_server_ciphers off;
+
+ssl_ciphers "ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS";
+
+pm2 serve . --name "my-vite-app" --port 9001
+pm2 start npm --name <your_app_name> -- run dev
+
+sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
+
+sudo certbot --nginx -d freedomainapp.publicvm.com
+
+
+
+
+# SSL & TLS 
+Secure Sockets Layer  , Transport Layer Security
